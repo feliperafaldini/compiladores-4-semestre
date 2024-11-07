@@ -44,7 +44,7 @@ class Lexer(object):
     # Função para identificadores e palavras-chave
     def t_ID(self, t):
         r'[a-zA-Z_][a-zA-Z_0-9]*'
-        t.type = keywords.get(t.value, 'ID')  # Define o tipo de token como palavra-chave ou ID
+        t.type = self.keywords.get(t.value, 'ID')  # Define o tipo de token como palavra-chave ou ID
         return t
     
     # Função para números
@@ -55,7 +55,7 @@ class Lexer(object):
     
     # Função para comentários
     def t_COMMENT(self, t):
-        r'/#.*'
+        r'\#.*'
         pass
         
     # Ignorar espaços e tabulações
