@@ -13,10 +13,6 @@ class Lexer(object):
         'RPAREN',    # )
         'ASSIGN',    # =
         'SEMICOLON', # ;
-        'IF',        # Condicional Se
-        'ELIF',      # Condicional Se não se
-        'ELSE',      # Condicional Se não
-        'WHILE',     # Enquanto
     ]
     
     # Palavras-chave
@@ -24,6 +20,7 @@ class Lexer(object):
         'if' : 'IF',
         'else': 'ELSE',
         'elif': 'ELIF',
+        'do': 'DO',
         'while': 'WHILE',
         'print': 'PRINT',
     }
@@ -81,4 +78,4 @@ class Lexer(object):
 
 lexer = Lexer()
 lexer.build()
-lexer.test("3 + 4")
+lexer.test("print(3 + 4)")
