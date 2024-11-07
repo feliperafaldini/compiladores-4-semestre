@@ -1,80 +1,88 @@
 import ply.lex as lex
 
-# Lista de tokens
-tokens = [
-    'ID',        # Identificadores
-    'NUMBER',    # Números
-    'PLUS',      # +
-    'MINUS',     # -
-    'TIMES',     # *
-    'DIVIDE',    # /
-    'LPAREN',    # (
-    'RPAREN',    # )
-    'ASSIGN',    # =
-    'SEMICOLON', # ;
-    'IF',        # Condicional Se
-    'ELIF',      # Condicional Se não se
-    'ELSE',      # Condicional Se não
-    'WHILE',     # Enquanto
-]
-
-# Palavras-chave
-keywords = {
-    'if' : 'IF',
-    'else': 'ELSE',
-    'elif': 'ELIF',
-    'while': 'WHILE',
-    'print': 'PRINT',
-}
-
-# Adiciona palavras-chave à lista de tokens
-tokens = tokens + list(keywords.values())
-
-# Expressões regulares para tokens
-t_PLUS = r'\+'
-t_MINUS = r'-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
-t_LPAREN = r'\('
-t_RPAREN = r'\)'
-t_ASSIGN = r'='
-t_SEMICOLON = r';'
-t_IF = r'if'
-t_ELIF = r'elif'
-r_ELSE = r'else'
-r_WHILE = r'while'
-
-# Função para identificadores e palavras-chave
-def t_ID(t):
-    r'[a-zA-Z_][a-zA-Z_0-9]*'
-    t.type = keywords.get(t.value, 'ID')  # Define o tipo de token como palavra-chave ou ID
-    return t
-
-# Função para números
-def t_NUMBER(t):
-    r'\d+'
-    t.value = int(t.value)  # Converte o valor para inteiro
-    return t
-
-# Função para comentários
-def t_COMMENT(t):
-    r'/#.*'
-    pass
+class Lexer(object):
+    # Lista de tokens
+    tokens = [
+        'ID',        # Identificadores
+        'NUMBER',    # Números
+        'PLUS',      # +
+        'MINUS',     # -
+        'TIMES',     # *
+        'DIVIDE',    # /
+        'LPAREN',    # (
+        'RPAREN',    # )
+        'ASSIGN',    # =
+        'SEMICOLON', # ;
+        'IF',        # Condicional Se
+        'ELIF',      # Condicional Se não se
+        'ELSE',      # Condicional Se não
+        'WHILE',     # Enquanto
+    ]
     
-# Ignorar espaços e tabulações
-t_ignore = ' \t'
+    # Palavras-chave
+    keywords = {
+        'if' : 'IF',
+        'else': 'ELSE',
+        'elif': 'ELIF',
+        'while': 'WHILE',
+        'print': 'PRINT',
+    }
+    
+    # Adiciona palavras-chave à lista de tokens
+    tokens = tokens + list(keywords.values())
+    
+    # Expressões regulares para tokens
+    t_PLUS = r'\+'
+    t_MINUS = r'-'
+    t_TIMES = r'\*'
+    t_DIVIDE = r'/'
+    t_LPAREN = r'\('
+    t_RPAREN = r'\)'
+    t_ASSIGN = r'='
+    t_SEMICOLON = r';'
+    t_IF = r'if'
+    t_ELIF = r'elif'
+    r_ELSE = r'else'
+    r_WHILE = r'while'
+    
+    # Função para identificadores e palavras-chave
+    def t_ID(self, t):
+        r'[a-zA-Z_][a-zA-Z_0-9]*'
+        t.type = keywords.get(t.value, 'ID')  # Define o tipo de token como palavra-chave ou ID
+        return t
+    
+    # Função para números
+    def t_NUMBER(self, t):
+        r'\d+'
+        t.value = int(t.value)  # Converte o valor para inteiro
+        return t
+    
+    # Função para comentários
+    def t_COMMENT(self, t):
+        r'/#.*'
+        pass
+        
+    # Ignorar espaços e tabulações
+    t_ignore = ' \t'
+    
+    # Função para erros léxicos
+    def t_error(self, t):
+        print(f"Caractere ilegal '{t.value[0]}'")
+        t.lexer.skip(1)
 
-# Função para erros léxicos
-def t_error(t):
-    print(f"Caractere ilegal '{t.value[0]}'")
-    t.lexer.skip(1)
+    # Construção do lexer
+    def build(self, **kwargs):
+        self.lexer = lex.lex(module=self, **kwargs)
+        
+    # Teste
+    def test(self, data):
+        self.lexer.input(data)
+        while True:
+            tok = self.lexer.token()
+            if not tok:
+                break
+            print(tok)
 
-# Construção do lexer
-lexer = lex.lex()
-
-# Teste do lexer
-data = "x = 3 + 4 * (10 - 2);"
-lexer.input(data)
-
-for tok in lexer:
-    print(tok)
+lexer = Lexer()
+lexer.build()
+lexer.test("3 + 4")
