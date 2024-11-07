@@ -12,9 +12,9 @@ tokens = [
     'RPAREN',    # )
     'ASSIGN',    # =
     'SEMICOLON', # ;
-    'IF',        # Condicional
-    'ELIF',      # Condicional
-    'ELSE',      # Condicional
+    'IF',        # Condicional Se
+    'ELIF',      # Condicional Se não se
+    'ELSE',      # Condicional Se não
     'WHILE',     # Enquanto
 ]
 
