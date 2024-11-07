@@ -40,10 +40,6 @@ class Lexer(object):
     t_RPAREN = r'\)'
     t_ASSIGN = r'='
     t_SEMICOLON = r';'
-    t_IF = r'if'
-    t_ELIF = r'elif'
-    r_ELSE = r'else'
-    r_WHILE = r'while'
     
     # Função para identificadores e palavras-chave
     def t_ID(self, t):
