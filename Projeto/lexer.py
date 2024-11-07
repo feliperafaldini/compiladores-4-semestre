@@ -21,7 +21,7 @@ tokens = [
 # Palavras-chave
 keywords = {
     'if' : 'IF',
-    'else': 'ElSE',
+    'else': 'ELSE',
     'elif': 'ELIF',
     'while': 'WHILE',
     'print': 'PRINT',
@@ -56,6 +56,11 @@ def t_NUMBER(t):
     t.value = int(t.value)  # Converte o valor para inteiro
     return t
 
+# Função para comentários
+def t_COMMENT(t):
+    r'/#.*'
+    pass
+    
 # Ignorar espaços e tabulações
 t_ignore = ' \t'
 
