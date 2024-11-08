@@ -15,12 +15,12 @@ class Parser(object):
 
     # Regras gramaticais
     def p_statement_assign(self, p):
-        "statement : ID ASSIGN expression SEMICOLON"
+        """statement : ID ASSIGN expression SEMICOLON"""
         p[0] = ("assign", p[1], p[3])
 
-    def p_statement_expr(self, p):
-        "statement : expression SEMICOLON"
-        p[0] = ("expr", p[1])
+    def p_statement_expression(self, p):
+        """statement : expression SEMICOLON"""
+        p[0] = ("expression", p[1])
 
     def p_expression_binop(self, p):
         """expression : expression PLUS expression
@@ -34,11 +34,11 @@ class Parser(object):
 
     def p_expression_group(self, p):
         "expression : LPAREN expression RPAREN"
-        p[0] = p[2]
+        p[0] = ("group-expression", p[2])
 
     def p_expression_number(self, p):
         "expression : NUMBER"
-        p[0] = p[1]
+        p[0] = ("number-expression", p[1])
 
     def p_expression_id(self, p):
         "expression : ID"
@@ -61,30 +61,17 @@ class Parser(object):
             p[0] = [p[1]] + p[2]
 
     def p_statement_print(self, p):
-        "statement : PRINT LPAREN expression RPAREN"
+        "statement : PRINT LPAREN expression RPAREN SEMICOLON"
         p[0] = ("print", p[3])
 
     def p_statement_if(self, p):
-        """statement : IF LPAREN expression RPAREN LBRACE statement RBRACE
-        | IF LPAREN expression RPAREN RPAREN statement RBRACE ELIF LPAREN expression RPAREN RPAREN statement RBRACE
-        | IF LPAREN expression RPAREN RPAREN statement RBRACE ELSE RPAREN statement RBRACE
-        | IF LPAREN expression RPAREN RPAREN statement RBRACE ELIF LPAREN expression RPAREN RPAREN statement RBRACE ELSE COLON statement RBRACE
+        """statement : IF LPAREN expression RPAREN LBRACE statement_list RBRACE
+        | IF LPAREN expression RPAREN LBRACE statement_list RBRACE ELSE LBRACE statement_list RBRACE
         """
-
-        if len(p) == 6:
-            p[0] = ("if", p[3], p[5], None, None)
-        elif len(p) == 10:
-            p[0] = ("if", p[3], p[5], ("elif", p[7], p[9]), None)
+        if len(p) == 8:
+            p[0] = ("if", p[3], p[6])
         elif len(p) == 12:
-            p[0] = ("if", p[3], p[5], ("elif", p[7], p[9]), p[11])
-        elif len(p) == 14:
-            p[0] = (
-                "if",
-                p[3],
-                p[5],
-                [("elif", p[7], p[9]), ("elif", p[11], p[13])],
-                p[15],
-            )
+            p[0] = ("if_else", p[3], p[6], p[10])
 
     # Tratamento de erros sintáticos
     def p_error(self, p):
@@ -96,8 +83,8 @@ class Parser(object):
             print(f"Erro sintático encontrado: Erro na entrada")
 
     # Construção do parser
-    def build(self):
-        self.parser = yacc.yacc(module=self)
+    def build(self, **kwargs):
+        self.parser = yacc.yacc(module=self, **kwargs)
 
     # Teste do parser
     def test(self, data):
@@ -110,6 +97,6 @@ class Parser(object):
 
 if __name__ == "__main__":
     parser = Parser()
-    parser.build()
-    data = """x = 1; do {x=x+1;} while (1+1);"""
+    parser.build(debug=True)
+    data = """x = 10; y= 1;"""
     parser.test(data)

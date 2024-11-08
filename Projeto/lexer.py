@@ -101,4 +101,10 @@ class Lexer(object):
 if __name__ == "__main__":
     lexer = Lexer()
     lexer.build()
-    lexer.test("""x=1; do {x=x+1;} while (x<3)""")
+    lexer.test("""x = 10;
+                y = 20;
+                if (x < y) {
+                    print( x ); 
+                } else {
+                    print( y );
+                }""")
