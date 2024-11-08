@@ -8,7 +8,9 @@ class Lexer(object):
         "ID",  # Identificadores
         "NUMBER",  # Números
         "PLUS",  # +
+        "PLUSASSIGN",  # +=
         "MINUS",  # -
+        "MINUSASSIGN",  # -=
         "TIMES",  # *
         "DIVIDE",  # /
         "LPAREN",  # (
@@ -16,11 +18,15 @@ class Lexer(object):
         "LBRACE",  # {
         "RBRACE",  # }
         "EQUAL",  # ==
+        "NOTEQUAL",  # !=
         "ASSIGN",  # =
         "COLON",  # :
         "SEMICOLON",  # ;
         "LESS",  # <
         "MORE",  # >
+        "COMMA",  # ,
+        "OR", # ||
+        "AND", # &&
     ]
 
     # Palavras-chave
@@ -38,7 +44,9 @@ class Lexer(object):
 
     # Expressões regulares para tokens
     t_PLUS = r"\+"
+    t_PLUSASSIGN = r"\+="
     t_MINUS = r"-"
+    t_MINUSASSIGN = r"-="
     t_TIMES = r"\*"
     t_DIVIDE = r"/"
     t_LPAREN = r"\("
@@ -50,7 +58,11 @@ class Lexer(object):
     t_LESS = r"<"
     t_MORE = r">"
     t_EQUAL = r"=="
+    t_NOTEQUAL = r"!="
     t_ASSIGN = r"="
+    t_COMMA = r","
+    t_OR = r"\|\|"
+    t_AND = r"&&"
 
     # Função para identificadores e palavras-chave
     def t_ID(self, t):
@@ -101,10 +113,12 @@ class Lexer(object):
 if __name__ == "__main__":
     lexer = Lexer()
     lexer.build()
-    lexer.test("""x = 10;
-                y = 20;
-                if (x < y) {
-                    print( x ); 
-                } else {
-                    print( y );
-                }""")
+    lexer.test(
+        """x = 10;
+            y = 20;if (x < y) {
+                print( x ); 
+            } else {
+                print( y );
+            }
+            """
+    )
