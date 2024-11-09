@@ -18,25 +18,25 @@ O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (e
   <br>
   <ul>
     <li>
-      t_ID: Identifica identificadores e palavras-chave.
+      <code>t_ID</code>: Identifica identificadores e palavras-chave.
     </li>
     <li>
-      t_NUMBER: Identifica números inteiros.
+      <code>t_NUMBER</code>: Identifica números inteiros.
     </li>
     <li>
-      t_COMMENT: Ignora comentários.
+      <code>t_COMMENT</code>: Ignora comentários.
     </li>
     <li>
-      t_newline: Atualiza o número da linha a cada nova linha.
+      <code>t_newline</code>: Atualiza o número da linha a cada nova linha.
     </li>
     <li>
-      t_error: Lida com caracteres inválidos.
+      <code>t_error</code>: Lida com caracteres inválidos.
     </li>
     <li>
-      Método build: Constrói o lexer com o módulo lex.
+      Método <code>build()</code>: Constrói o lexer com o módulo lex.
     </li>
     <li>
-      Método test: Testa o lexer com um conjunto de dados de entrada, gerando um arquivo JSON com o resultado da análise     léxica.
+      Método <code>test(data)</code>: Testa o lexer com um conjunto de dados <code>data</code> de entrada, gerando um arquivo <code>JSON</code> com o resultado da análise léxica.
     </li>
   </ul>
 </ul>
@@ -51,12 +51,12 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
   <br>
   <ul>
     <li>Expressões Matemáticas: Regras para soma, subtração, multiplicação e divisão.</li>
-    <li>Comparações: Regras para operadores de comparação como ==, !=, <, >.</li>
-    <li>Atribuições: Regras para atribuições e operações de atribuição (como += e -=).</li>
-    <li>Estruturas de Controle: Regras para estruturas condicionais (if, elif, else) e loops (do-while).</li>
-    <li>Função print: Regra para imprimir valores.</li>
-    <li>Método build: Constrói o parser com o módulo yacc.</li>
-    <li>Método test: Testa o parser com um conjunto de dados de entrada e gera uma AST no formato JSON.</li>
+    <li>Comparações: Regras para operadores de comparação como <code>==</code>, <code>!=</code>, <code><</code>, <code>></code>.</li>
+    <li>Atribuições: Regras para atribuições e operações de atribuição (como <code>+=</code> e <code>-=</code>).</li>
+    <li>Estruturas de Controle: Regras para estruturas condicionais (<code>if</code>, <code>elif</code>, <code>else</code>) e loops (<code>do-while</code>).</li>
+    <li>Função <code>print</code>: Regra para imprimir valores.</li>
+    <li>Método <code>build()</code>: Constrói o parser com o módulo yacc.</li>
+    <li>Método <code>test(data)</code>: Testa o parser com um conjunto de dados <code>data</code> de entrada e gera uma AST no formato <code>JSON</code>.</li>
   </ul>
 </ul>
 
@@ -70,6 +70,12 @@ A classe `CodeGenerator` é responsável por converter a árvore de sintaxe abst
   <ul>
     <li>
       <code>generate_code(node)</code>: Gera o código intermediário para um determinado nó da AST.
+    </li>
+    <li>
+      <code>generate_block_code(block)</code>: Gera o código intermedário para um bloco de código.
+    </li>
+    <li>
+      <code>get_code()</code>: Retorna o código intermediário gerado como uma string.
     </li>
   </ul>
 </ul>
@@ -93,7 +99,7 @@ if ( x != y || x == y ) {
 Quando o código é executado:
 1. O `Lexer` analisa a entrade e gera uma lista de tokens para cada caractere no código.
 2. O `Parser` usa essa lista de tokens para construir uma Árvore de Sintaxe Abstrata (AST).
-3. A AST é então usada no `CodeGenerator` para gerar um código intermediário correspondente.
+3. A AST é então processada no `CodeGenerator` para gerar um código intermediário correspondente.
 
 ## Resultados
 O `Lexer` gera um arquivo `JSON` `lexer_result.json`, que contém uma lista de tokens com seu tipo, valor e número de linha.
