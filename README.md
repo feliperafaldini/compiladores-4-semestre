@@ -15,7 +15,7 @@ Tokens: O lexer reconhece diversos tokens, como identificadores (ID), números (
   <li>
     Funções principais:
   </li>
-  
+  <br>
   <ul>
     <li>t_ID: Identifica identificadores e palavras-chave.</li>
     <li>t_NUMBER: Identifica números inteiros.</li>
