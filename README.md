@@ -1,21 +1,26 @@
 # Implementação de um Compilador com PLY
+<br>
 
 ## Descrição
 Este projeto implementa um lexer (analisador léxico) e um parser (analisador sintático) para um código de uma linguagem fictícia, utilizando as bibliotecas PLY (Python Lex-Yacc). O objetivo do código é identificar e analisar expressões matemáticas, estruturas condicionais (`if`, `else`, `elif`), loops (`do-while`), atribuições (`assign`) e funções como `print`. O resultado final é a geração de uma Árvore de Sintaxe Abstrata (AST) e a criação de um código a partir dessa AST.
+<br>
 
 # Estrutura de Código
 O código é dividido em três principais classes: `Lexer`, `Parser` e `CodeGenerator`.
+<br>
 
 ## Lexer (Analisador Léxico)
 O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (elementos léxicos) que são interpretados pelo parser. Ele usa a biblioteca PLY para definir regras de tokenização com expressões regulares.
 
 - Tokens: O lexer reconhece diversos tokens, como identificadores (`ID`), números (`NUMBER`), operadores matemáticos (`+`, `-`, `*`, `/`), operadores de comparação (`==`, `!=`, `<`, `>`) e operadores lógicos (`&&`, `||`), além de palavras-chave (`if`, `elif`, `else`, `do`, `while`, `print`).
+<br>
 
 <ul>
   <li>
     Funções principais:
   </li>
   <br>
+  
   <ul>
     <li>
       <code>t_ID</code>: Identifica identificadores e palavras-chave.
@@ -40,15 +45,18 @@ O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (e
     </li>
   </ul>
 </ul>
+<br>
 
 ## Parser (Analisador Sintático)
 O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e gerar uma Árvore de Sintaxe Abstrata (AST). Ele usa a biblioteca PLY.yacc para definir regras gramaticais e a precedência de operadores.
+<br>
 
 <ul>
   <li>
     Regras de Gramática: O parser define várias regras para expressões e sentenças, como:
   </li>
   <br>
+  
   <ul>
     <li>Expressões Matemáticas: Regras para soma (<code>+</code>), subtração(<code>-</code>, multiplicação (<code>*</code>) e divisão(<code>/</code>).</li>
     <li>Comparações: Regras para operadores de comparação como igual (<code>==</code>), diferente (<code>!=</code>), menor (<code><</code>), maior (<code>></code>).</li>
@@ -59,9 +67,11 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
     <li>Método <code>test(data)</code>: Testa o parser com um conjunto de dados <code>data</code> de entrada e gera uma AST no formato <code>JSON</code>.</li>
   </ul>
 </ul>
-
+<br>
+      
 ## Geração de Código
 A classe `CodeGenerator` é responsável por converter a árvore de sintaxe abstrata (AST) gerada pelo parser em código intermediário. O código intermediário usa variáveis temporárias e rótulos para representar as operações e estrutuas de controle do código-fonte.
+<br>
 
 <ul>
   <li>
