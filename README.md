@@ -46,6 +46,9 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
   </ul>
 </ul>
 
+## Geração de Código
+A partir da AST gerada pelo parser, é possível gerar um código intermediário. isso é feito pela classe `CodeGenerator`
+
 # Requisitos
 - Python 3.x
 - Biblioteca 'ply' para construção do lexer e parser:
