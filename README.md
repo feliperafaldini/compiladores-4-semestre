@@ -13,14 +13,14 @@ Tokens: O lexer reconhece diversos tokens, como identificadores (ID), números (
 
 <ul><li>Funções principais:</li>
   <ul>
-    <li>t_ID: Identifica identificadores e palavras-chave.</li>
-    <li>t_NUMBER: Identifica números inteiros.</li>
-    <li>t_COMMENT: Ignora comentários.</li>
-    <li>t_newline: Atualiza o número da linha a cada nova linha.</li>
-    <li>t_error: Lida com caracteres inválidos.</li>
-    <li>Método build: Constrói o lexer com o módulo lex.</li>
-    <li>Método test: Testa o lexer com um conjunto de dados de entrada, gerando um arquivo JSON com o resultado da análise     léxica.</li>
-  </ul>ul>
+    <li>- t_ID: Identifica identificadores e palavras-chave.</li>
+    <li>- t_NUMBER: Identifica números inteiros.</li>
+    <li>- t_COMMENT: Ignora comentários.</li>
+    <li>- t_newline: Atualiza o número da linha a cada nova linha.</li>
+    <li>- t_error: Lida com caracteres inválidos.</li>
+    <li>- Método build: Constrói o lexer com o módulo lex.</li>
+    <li>- Método test: Testa o lexer com um conjunto de dados de entrada, gerando um arquivo JSON com o resultado da análise     léxica.</li>
+  </ul>
 </ul>
 
 ## Parser (Analisador Sintático)
