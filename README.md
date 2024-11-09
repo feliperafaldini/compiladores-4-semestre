@@ -102,8 +102,7 @@ Quando o código é executado:
 2. O `Parser` usa essa lista de tokens para construir uma Árvore de Sintaxe Abstrata (AST).
 3. A AST é então processada no `CodeGenerator` para gerar um código intermediário correspondente.
 ```mermaid
-graph TD;
-  title: Exemplo de execução
+chart TD;
   classDiagram
     class Lexer
     class Parser
