@@ -8,3 +8,4 @@ O projeto tem como objetivo a implementação de um compilador simples para uma 
 - Biblioteca 'ply' para construção do lexer e parser:
 '''bash
 pip install ply
+'''
