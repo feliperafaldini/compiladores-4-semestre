@@ -1,15 +1,15 @@
 # Implementação de um Compilador com PLY
 
 ## Descrição
-Este projeto implementa um lexer (analisador léxico) e um parser (analisador sintático) para um subconjunto de uma linguagem fictícia, utilizando as bibliotecas PLY (Python Lex-Yacc). O objetivo do código é identificar e analisar expressões matemáticas, estruturas condicionais (`if`, `else`, `elif`), loops (`do-while`), atribuições e funções como print em um formato de entrada. O resultado final é a geração de uma Árvore de Sintaxe Abstrata (AST) e a criação de um código a partir dessa AST.
+Este projeto implementa um lexer (analisador léxico) e um parser (analisador sintático) para um código de uma linguagem fictícia, utilizando as bibliotecas PLY (Python Lex-Yacc). O objetivo do código é identificar e analisar expressões matemáticas, estruturas condicionais (`if`, `else`, `elif`), loops (`do-while`), atribuições (`assign`) e funções como `print`. O resultado final é a geração de uma Árvore de Sintaxe Abstrata (AST) e a criação de um código a partir dessa AST.
 
 # Estrutura de Código
-O código é dividido em duas principais classes: `Lexer` e `Parser`, com a ajuda de uma classe auxiliar `CodeGenerator` para gerar o código a partir da AST.
+O código é dividido em três principais classes: `Lexer`, `Parser` e `CodeGenerator`.
 
 ## Lexer (Analisador Léxico)
-O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (elementos léxicos) que são mais facilmente interpretados pelo parser. Ele usa a biblioteca PLY para definir regras de tokenização com expressões regulares.
+O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (elementos léxicos) que são interpretados pelo parser. Ele usa a biblioteca PLY para definir regras de tokenização com expressões regulares.
 
-- Tokens: O lexer reconhece diversos tokens, como identificadores (`ID`), números (`NUMBER`), operadores matemáticos (`+`, `-`, `*`, `/`), operadores de comparação (`==`, `!=`, `<`, `>`) e operadores lógicos (`&&`, `||`), além de palavras-chave (`if`, `else`, `while`, `print`).
+- Tokens: O lexer reconhece diversos tokens, como identificadores (`ID`), números (`NUMBER`), operadores matemáticos (`+`, `-`, `*`, `/`), operadores de comparação (`==`, `!=`, `<`, `>`) e operadores lógicos (`&&`, `||`), além de palavras-chave (`if`, `elif`, `else`, `do`, `while`, `print`).
 
 <ul>
   <li>
@@ -36,13 +36,13 @@ O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (e
       Método <code>build()</code>: Constrói o lexer com o módulo lex.
     </li>
     <li>
-      Método <code>test(data)</code>: Testa o lexer com um conjunto de dados <code>data</code> de entrada, gerando um arquivo <code>JSON</code> com o resultado da análise léxica.
+      Método <code>test(data)</code>: Testa o lexer com um conjunto de dados <code>data</code> de entrada em forma de <code>string</code>, gerando um arquivo <code>JSON</code> com o resultado da análise léxica.
     </li>
   </ul>
 </ul>
 
 ## Parser (Analisador Sintático)
-O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e gerar uma Árvore de Sintaxe Abstrata (AST). Ele usa a biblioteca PLY para definir regras gramaticais e a precedência de operadores.
+O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e gerar uma Árvore de Sintaxe Abstrata (AST). Ele usa a biblioteca PLY.yacc para definir regras gramaticais e a precedência de operadores.
 
 <ul>
   <li>
@@ -50,10 +50,10 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
   </li>
   <br>
   <ul>
-    <li>Expressões Matemáticas: Regras para soma, subtração, multiplicação e divisão.</li>
-    <li>Comparações: Regras para operadores de comparação como <code>==</code>, <code>!=</code>, <code><</code>, <code>></code>.</li>
-    <li>Atribuições: Regras para atribuições e operações de atribuição (como <code>+=</code> e <code>-=</code>).</li>
-    <li>Estruturas de Controle: Regras para estruturas condicionais (<code>if</code>, <code>elif</code>, <code>else</code>) e loops (<code>do-while</code>).</li>
+    <li>Expressões Matemáticas: Regras para soma (<code>+</code>), subtração(<code>-</code>, multiplicação (<code>*</code>) e divisão(<code>/</code>).</li>
+    <li>Comparações: Regras para operadores de comparação como igual (<code>==</code>), diferente (<code>!=</code>), menor (<code><</code>), maior (<code>></code>).</li>
+    <li>Atribuições: Regras para atribuições e operações de atribuição como incremento (<code>+=</code>) e decremento (<code>-=</code>).</li>
+    <li>Estruturas de Controle: Regras para estruturas condicionais se (<code>if</code>), se não se (<code>elif</code>), se não (<code>else</code>) e loops faça enquanto (<code>do-while</code>).</li>
     <li>Função <code>print</code>: Regra para imprimir valores.</li>
     <li>Método <code>build()</code>: Constrói o parser com o módulo yacc.</li>
     <li>Método <code>test(data)</code>: Testa o parser com um conjunto de dados <code>data</code> de entrada e gera uma AST no formato <code>JSON</code>.</li>
@@ -119,6 +119,7 @@ O `Lexer` gera um arquivo `JSON` `lexer_result.json`, que contém uma lista de t
 <br>
 O `Parser` gera um arquivo `JSON` `parser_result.json`, que contém a AST com a estrutura hierárquica dos elementos do código.
 <br>
+
 # Requisitos
 1. Python 3.x
 2. Biblioteca 'ply' para construção do lexer e parser:
