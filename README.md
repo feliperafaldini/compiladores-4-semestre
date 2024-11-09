@@ -82,6 +82,7 @@ A classe `CodeGenerator` é responsável por converter a árvore de sintaxe abst
 
 ## Exemplo de Execução
 O código fornece um exemplo de entrada no formate de código fonte que envolve operações aritméticas, estruturas condicionais e loops:
+**[Python]**
 ```Python
 x = 10;
 y = 1;
