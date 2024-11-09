@@ -105,7 +105,7 @@ Quando o código é executado:
   flowchart TD
   data["Entrada de dados"] -->|Gera Tokens| Lexer[Lexer]
   Lexer -->|Tokens| Tokens[Lista de Tokens]
-  Tokens -->|Tokens| Parser[Parser]
+  Tokens -->|Lista de Tokens| Parser[Parser]
   Parser -->|Gera AST| AST[Árvore de Sintaxe Abstrata]
   AST -->|Gera Código Intermediário| CodeGenerator[CodeGenerator]
   CodeGenerator -->|Código Gerado| GeneratedCode[Código Intermediário]
