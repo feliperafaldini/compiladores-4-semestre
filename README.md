@@ -18,9 +18,9 @@ Funções principais:
 - t_COMMENT: Ignora comentários.
 - t_newline: Atualiza o número da linha a cada nova linha.
 - t_error: Lida com caracteres inválidos.
--- Método build: Constrói o lexer com o módulo lex.
+* Método build: Constrói o lexer com o módulo lex.
 
--- Método test: Testa o lexer com um conjunto de dados de entrada, gerando um arquivo JSON com o resultado da análise léxica.
+* Método test: Testa o lexer com um conjunto de dados de entrada, gerando um arquivo JSON com o resultado da análise léxica.
 
 - Parser (Analisador Sintático)
 O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e gerar uma Árvore de Sintaxe Abstrata (AST). Ele usa a biblioteca PLY para definir regras gramaticais e a precedência de operadores.
