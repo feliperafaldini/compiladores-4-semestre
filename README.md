@@ -107,8 +107,8 @@ Quando o código é executado:
   Lexer -->|Lista de Tokens| LexerJSON['lexer_result.json'] 
   Lexer -->|Lista de Tokens| Parser[Parser]
   Parser -->|Gera AST| ParserJSON['parser_result.json']
-  Parser -->|Gera Código Intermediário| CodeGenerator[CodeGenerator]
-  CodeGenerator -->|Código Gerado| GeneratedCode['code_result.json']
+  Parser -->|Gera AST| CodeGenerator[CodeGenerator]
+  CodeGenerator -->|Gera Código Intermediário| GeneratedCode['code_result.json']
 
   class Lexer,Tokens,Parser,CodeGenerator,GeneratedCode,AST,data internal
 ```
