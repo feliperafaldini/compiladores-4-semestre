@@ -7,6 +7,6 @@ O projeto tem como objetivo a implementação de um compilador simples para uma 
 - Python 3.x
 - Biblioteca 'ply' para construção do lexer e parser:
 ```bash
-```bash
+bash
 pip install ply
 
