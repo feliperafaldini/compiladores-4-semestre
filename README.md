@@ -104,6 +104,11 @@ Quando o código é executado:
 ```mermaid
   flowchart TD
   data["Entrada de dados"] -->|Gera Tokens| Lexer[Lexer]
+  Lexer -->|Tokens| Tokens[Lista de Tokens]
+  Tokens -->|Tokens| Parser[Parser]
+  Parser -->|Gera AST| AST[Árvore de Sintaxe Abstrata]
+
+  class Lexer,Tokens,Parser,AST,Data internal
 ```
 
 
