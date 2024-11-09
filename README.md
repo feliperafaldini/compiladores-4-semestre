@@ -84,7 +84,6 @@ A classe `CodeGenerator` é responsável por converter a árvore de sintaxe abst
 O código fornece um exemplo de entrada no formate de código fonte que envolve operações aritméticas, estruturas condicionais e loops:
 
 ```Python
-# Python
 x = 10;
 y = 1;
 do {
@@ -102,6 +101,13 @@ Quando o código é executado:
 1. O `Lexer` analisa a entrade e gera uma lista de tokens para cada caractere no código.
 2. O `Parser` usa essa lista de tokens para construir uma Árvore de Sintaxe Abstrata (AST).
 3. A AST é então processada no `CodeGenerator` para gerar um código intermediário correspondente.
+```mermaid
+graph TD;
+  Entrada-->Lexer;
+  Lexer-->Parser;
+  Parser-->CodeGenerator;
+```
+
 
 ## Resultados
 O `Lexer` gera um arquivo `JSON` `lexer_result.json`, que contém uma lista de tokens com seu tipo, valor e número de linha.
