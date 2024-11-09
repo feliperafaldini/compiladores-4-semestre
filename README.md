@@ -103,12 +103,12 @@ Quando o código é executado:
 3. A AST é então processada no `CodeGenerator` para gerar um código intermediário correspondente.
 ```mermaid
 chart TD;
-  classDiagram
-    class Lexer
-    class Parser
-    class CodeGenerator
+  class Data{}
+  class Lexer{}
+  class Parser{}
+  class CodeGenerator{}
 
-  data-->Lexer
+  Data --|> Lexer
   
 ```
 
