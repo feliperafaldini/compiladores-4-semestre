@@ -35,6 +35,7 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
     Regras de Gramática: O parser define várias regras para expressões e sentenças, como:
   </li>
   <br>
+  <ul>
     <li>Expressões Matemáticas: Regras para soma, subtração, multiplicação e divisão.</li>
     <li>Comparações: Regras para operadores de comparação como ==, !=, <, >.</li>
     <li>Atribuições: Regras para atribuições e operações de atribuição (como += e -=).</li>
@@ -42,6 +43,7 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
     <li>Função print: Regra para imprimir valores.</li>
     <li>Método build: Constrói o parser com o módulo yacc.</li>
     <li>Método test: Testa o parser com um conjunto de dados de entrada e gera uma AST no formato JSON.</li>
+  </ul>
 </ul>
 
 # Requisitos
