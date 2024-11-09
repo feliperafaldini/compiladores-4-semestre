@@ -3,6 +3,8 @@ import json
 from lexer import Lexer
 from parser_error import ParserError
 
+from codegenerator import CodeGenerator
+
 
 class Parser(object):
     # Importação dos tokens
@@ -79,7 +81,7 @@ class Parser(object):
         | expression NOTEQUAL expression
         | expression LESS expression
         | expression MORE expression"""
-        p[0] = (p[2], p[1], p[3])
+        p[0] = ("comparison", p[2], p[1], p[3])
 
     ## Regra de operação OR
     def p_expression_or(self, p):
@@ -180,7 +182,7 @@ class Parser(object):
                 json.dump(result, f, ensure_ascii=True)
 
             return result
-        
+
         except ParserError as e:
             print(f"Erro: {e}")
             raise
@@ -202,4 +204,7 @@ if __name__ == "__main__":
                     print( x , y );
                 }
             """
-    print(parser.test(data))
+    ast = parser.test(data)
+    generator = CodeGenerator()
+    generator.generate_code(ast)
+    print(generator.get_code())
