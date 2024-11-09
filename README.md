@@ -106,9 +106,9 @@ Quando o código é executado:
   data["Entrada de dados"] -->|Gera Tokens| Lexer[Lexer]
   Lexer -->|Lista de Tokens| JSON['lexer_result.json'] 
   Lexer -->|Lista de Tokens| Parser[Parser]
-  Parser -->|Gera AST| AST[Árvore de Sintaxe Abstrata]
-  AST -->|Gera Código Intermediário| CodeGenerator[CodeGenerator]
-  CodeGenerator -->|Código Gerado| GeneratedCode[Código Intermediário]
+  Parser -->|Gera AST| JSON['parser_result.json']
+  Parser -->|Gera Código Intermediário|  CodeGenerator[CodeGenerator]
+  CodeGenerator -->|Código Gerado| GeneratedCode['code_result.json']
 
   class Lexer,Tokens,Parser,CodeGenerator,GeneratedCode,AST,data internal
 ```
