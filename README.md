@@ -17,13 +17,27 @@ O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (e
   </li>
   <br>
   <ul>
-    <li>t_ID: Identifica identificadores e palavras-chave.</li>
-    <li>t_NUMBER: Identifica números inteiros.</li>
-    <li>t_COMMENT: Ignora comentários.</li>
-    <li>t_newline: Atualiza o número da linha a cada nova linha.</li>
-    <li>t_error: Lida com caracteres inválidos.</li>
-    <li>Método build: Constrói o lexer com o módulo lex.</li>
-    <li>Método test: Testa o lexer com um conjunto de dados de entrada, gerando um arquivo JSON com o resultado da análise     léxica.</li>
+    <li>
+      t_ID: Identifica identificadores e palavras-chave.
+    </li>
+    <li>
+      t_NUMBER: Identifica números inteiros.
+    </li>
+    <li>
+      t_COMMENT: Ignora comentários.
+    </li>
+    <li>
+      t_newline: Atualiza o número da linha a cada nova linha.
+    </li>
+    <li>
+      t_error: Lida com caracteres inválidos.
+    </li>
+    <li>
+      Método build: Constrói o lexer com o módulo lex.
+    </li>
+    <li>
+      Método test: Testa o lexer com um conjunto de dados de entrada, gerando um arquivo JSON com o resultado da análise     léxica.
+    </li>
   </ul>
 </ul>
 
@@ -47,7 +61,18 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
 </ul>
 
 ## Geração de Código
-A partir da AST gerada pelo parser, é possível gerar um código intermediário. isso é feito pela classe `CodeGenerator`
+A classe `CodeGenerator` é responsável por converter a árvore de sintaxe abstrata (AST) gerada pelo parser em código intermediário. O código intermediário usa variáveis temporárias e rótulos para representar as operações e estrutuas de controle do código-fonte.
+
+<ul>
+  <li>
+    Funções principais:
+  </li>
+  <ul>
+    <li>
+      <code>generate_code(node)</code>: Gera o código intermediário para um determinado nó da AST.
+    </li>
+  </ul>
+</ul>
 
 ## Exemplo de Execução
 O código fornece um exemplo de entrada no formate de código fonte que envolve operações aritméticas, estruturas condicionais e loops:
