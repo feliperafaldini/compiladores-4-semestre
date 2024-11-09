@@ -30,15 +30,19 @@ O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (e
 ## Parser (Analisador Sintático)
 O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e gerar uma Árvore de Sintaxe Abstrata (AST). Ele usa a biblioteca PLY para definir regras gramaticais e a precedência de operadores.
 
--Regras de Gramática: O parser define várias regras para expressões e sentenças, como:
-Expressões Matemáticas: Regras para soma, subtração, multiplicação e divisão.
-Comparações: Regras para operadores de comparação como ==, !=, <, >.
-Atribuições: Regras para atribuições e operações de atribuição (como += e -=).
-Estruturas de Controle: Regras para estruturas condicionais (if, elif, else) e loops (do-while).
-Função print: Regra para imprimir valores.
-Método build: Constrói o parser com o módulo yacc.
-
-Método test: Testa o parser com um conjunto de dados de entrada e gera uma AST no formato JSON.
+<ul>
+  <li>
+    Regras de Gramática: O parser define várias regras para expressões e sentenças, como:
+  </li>
+  <br>
+    <li>Expressões Matemáticas: Regras para soma, subtração, multiplicação e divisão.</li>
+    <li>Comparações: Regras para operadores de comparação como ==, !=, <, >.</li>
+    <li>Atribuições: Regras para atribuições e operações de atribuição (como += e -=).</li>
+    <li>Estruturas de Controle: Regras para estruturas condicionais (if, elif, else) e loops (do-while).</li>
+    <li>Função print: Regra para imprimir valores.</li>
+    <li>Método build: Constrói o parser com o módulo yacc.</li>
+    <li>Método test: Testa o parser com um conjunto de dados de entrada e gera uma AST no formato JSON.</li>
+</ul>
 
 # Requisitos
 - Python 3.x
