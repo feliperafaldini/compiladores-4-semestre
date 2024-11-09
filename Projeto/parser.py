@@ -3,8 +3,6 @@ import json
 from lexer import Lexer
 from parser_error import ParserError
 
-from codegenerator import CodeGenerator
-
 
 class Parser(object):
     # Importação dos tokens
@@ -204,7 +202,5 @@ if __name__ == "__main__":
                     print( x , y );
                 }
             """
-    ast = parser.test(data)
-    generator = CodeGenerator()
-    generator.generate_code(ast)
-    print(generator.get_code())
+    result = parser.test(data)
+    print(result)

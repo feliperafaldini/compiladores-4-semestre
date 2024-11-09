@@ -1,3 +1,6 @@
+from parser import Parser
+
+
 class CodeGenerator:
     def __init__(self):
         self.code = []
@@ -7,9 +10,9 @@ class CodeGenerator:
     def new_temp(self):
         self.temp_count += 1
         return f"t{self.temp_count}"
-    
+
     def new_label(self):
-        self.label_count +=1
+        self.label_count += 1
         return f"L{self.label_count}"
 
     def generate_code(self, node):
@@ -153,3 +156,30 @@ class CodeGenerator:
 
     def get_code(self):
         return "\n".join(self.code)
+
+    def generate_code_output(self):
+        with open("code_result.txt", "w") as f:
+            f.write(self.get_code())
+
+
+if __name__ == "__main__":
+    generator = CodeGenerator()
+    parser = Parser()
+    parser.build(debug=True)
+    data = """  x = 10; 
+                y= 1;
+                do { 
+                    x -= 1;
+                } while ( x > 1 );
+                if (x != y || x == y) {
+                    print( x ); 
+                } elif (x == y && x != y) {
+                    print( y ); 
+                } else {
+                    print( x , y );
+                }
+            """
+    ast = parser.test(data)
+    generator.generate_code(ast)
+    generator.generate_code_output()
+    print(generator.get_code())
