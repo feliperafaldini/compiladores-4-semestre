@@ -1,5 +1,7 @@
 import ply.yacc as yacc
+import json
 from lexer import Lexer
+from parser_error import ParserError
 
 
 class Parser(object):
@@ -150,23 +152,38 @@ class Parser(object):
     # Tratamento de erros sintáticos
     def p_error(self, p):
         if p:
-            print(
-                f"Erro sintático encontrado: Token {p.type}, com o valor '{p.value}' na linha {p.lineno}"
+            raise ParserError(
+                f"Erro sintático encontrado: Token {p.type}, com o valor '{p.value}' na linha {p.lineno}",
+                token=p,
             )
+
         else:
-            print(f"Erro sintático encontrado: Erro na entrada")
+            raise ParserError(f"Erro sintático encontrado: Erro na entrada")
 
     # Construção do parser
     def build(self, **kwargs):
-        self.parser = yacc.yacc(module=self, **kwargs)
+        try:
+            self.parser = yacc.yacc(module=self, **kwargs)
+
+        except Exception as e:
+            print(f"Erro: {e}")
 
     # Teste do parser
     def test(self, data):
-        lexer = Lexer()
-        lexer.build()
-        lexer.lexer.input(data)
-        result = self.parser.parse(data, lexer=lexer.lexer)
-        print(result)
+        try:
+            lexer = Lexer()
+            lexer.build()
+            lexer.lexer.input(data)
+            result = self.parser.parse(data, lexer=lexer.lexer)
+
+            with open("parser_result.json", "w", encoding="utf-8") as f:
+                json.dump(result, f, ensure_ascii=True)
+
+            return result
+        
+        except ParserError as e:
+            print(f"Erro: {e}")
+            raise
 
 
 if __name__ == "__main__":
@@ -185,4 +202,4 @@ if __name__ == "__main__":
                     print( x , y );
                 }
             """
-    parser.test(data)
+    print(parser.test(data))

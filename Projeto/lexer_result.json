@@ -1,0 +1,62 @@
+[
+    {
+        "type": "DO",
+        "value": "do",
+        "lineno": 1
+    },
+    {
+        "type": "LBRACE",
+        "value": "{",
+        "lineno": 1
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 1
+    },
+    {
+        "type": "PLUSASSIGN",
+        "value": "+=",
+        "lineno": 1
+    },
+    {
+        "type": "NUMBER",
+        "value": 1,
+        "lineno": 1
+    },
+    {
+        "type": "RBRACE",
+        "value": "}",
+        "lineno": 1
+    },
+    {
+        "type": "WHILE",
+        "value": "while",
+        "lineno": 1
+    },
+    {
+        "type": "LPAREN",
+        "value": "(",
+        "lineno": 1
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 1
+    },
+    {
+        "type": "LESS",
+        "value": "<",
+        "lineno": 1
+    },
+    {
+        "type": "NUMBER",
+        "value": 10,
+        "lineno": 1
+    },
+    {
+        "type": "RPAREN",
+        "value": ")",
+        "lineno": 1
+    }
+]

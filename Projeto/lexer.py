@@ -1,5 +1,6 @@
-import os
 import ply.lex as lex
+import json
+from lexer_error import LexerError
 
 
 class Lexer(object):
@@ -25,8 +26,8 @@ class Lexer(object):
         "LESS",  # <
         "MORE",  # >
         "COMMA",  # ,
-        "OR", # ||
-        "AND", # &&
+        "OR",  # ||
+        "AND",  # &&
     ]
 
     # Palavras-chave
@@ -93,32 +94,62 @@ class Lexer(object):
 
     # Função para erros léxicos
     def t_error(self, t):
-        print(f"Caractere ilegal '{t.value[0]}' na linha {t.lexer.lineno}")
-        t.lexer.skip(1)
+        raise LexerError(
+            f"Caractere ilegal '{t.value[0]}' na linha {t.lexer.lineno}", token=t
+        )
 
     # Construção do lexer
     def build(self, **kwargs):
-        self.lexer = lex.lex(module=self, **kwargs)
+        try:
+            self.lexer = lex.lex(module=self, **kwargs)
+        except Exception as e:
+            print(f"Erro: {e}")
 
-    # Teste
+    # Teste do lexer
     def test(self, data):
-        self.lexer.input(data)
-        while True:
-            tok = self.lexer.token()
-            if not tok:
-                break
-            print(tok)
+        try:
+            self.lexer.input(data)
+            list_tok = []
+
+            while True:
+                tok = self.lexer.token()
+
+                if not tok:
+                    break
+
+                list_tok.append(tok)
+
+            json_output = [
+                {"type": tok.type, "value": tok.value, "lineno": tok.lineno}
+                for tok in list_tok
+            ]
+
+            with open("lexer_result.json", "w", encoding="utf-8") as f:
+                json.dump(json_output, f, ensure_ascii=False, indent=4)
+
+            return list_tok
+
+        except LexerError as e:
+            print(f"Erro: {e}")
+            raise
 
 
 if __name__ == "__main__":
     lexer = Lexer()
     lexer.build()
-    lexer.test(
-        """x = 10;
-            y = 20;if (x < y) {
-                print( x ); 
-            } else {
-                print( y );
-            }
+    result = lexer.test(
+        """  x = 10; 
+                y= 1;
+                do { 
+                    x -= 1;
+                } while ( x > 1 );
+                if (x != y || x == y) {
+                    print( x ); 
+                } elif (x == y && x != y) {
+                    print( y ); 
+                } else {
+                    print( x , y );
+                }
             """
     )
+    print(result)
