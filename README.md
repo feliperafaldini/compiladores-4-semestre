@@ -9,7 +9,7 @@ O código é dividido em duas principais classes: Lexer e Parser, com a ajuda de
 ## Lexer (Analisador Léxico)
 O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (elementos léxicos) que são mais facilmente interpretados pelo parser. Ele usa a biblioteca PLY para definir regras de tokenização com expressões regulares.
 
-Tokens: O lexer reconhece diversos tokens, como identificadores (ID), números (NUMBER), operadores matemáticos (+, -, *, /), operadores de comparação (==, !=, <, >) e operadores lógicos (&&, ||), além de palavras-chave (if, else, while, print).
+- Tokens: O lexer reconhece diversos tokens, como identificadores (ID), números (NUMBER), operadores matemáticos (+, -, *, /), operadores de comparação (==, !=, <, >) e operadores lógicos (&&, ||), além de palavras-chave (if, else, while, print).
 
 <ul>
   <li>
