@@ -119,7 +119,9 @@ O `Lexer` gera um arquivo `JSON` `lexer_result.json`, que contém uma lista de t
 <br>
 O `Parser` gera um arquivo `JSON` `parser_result.json`, que contém a AST com a estrutura hierárquica dos elementos do código.
 <br>
-
+O `CodeGenerator` gera um arquivo `txt` `code_result.txt`, que contém um código intermediário do código fonte fornecido.
+<br>
+<br>
 # Requisitos
 1. Python 3.x
 2. Biblioteca 'ply' para construção do lexer e parser:
