@@ -108,7 +108,7 @@ Quando o código é executado:
   Tokens -->|Tokens| Parser[Parser]
   Parser -->|Gera AST| AST[Árvore de Sintaxe Abstrata]
   AST -->|Gera Código Intermediário| CodeGenerator[CodeGenerator]
-  CodeGenerator -->|Código Gerado| [Código Intermediário]
+  CodeGenerator -->|Código Gerado| GeneratedCode[Código Intermediário]
 
   class Lexer,Tokens,Parser,CodeGenerator,GeneratedCode,AST,data internal
 ```
