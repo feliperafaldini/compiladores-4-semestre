@@ -97,10 +97,12 @@ if ( x != y || x == y ) {
   print( x , y );
 }
 ```
+
 Quando o código é executado:
 1. O `Lexer` analisa a entrade e gera uma lista de tokens para cada caractere no código.
 2. O `Parser` usa essa lista de tokens para construir uma Árvore de Sintaxe Abstrata (AST).
 3. A AST é então processada no `CodeGenerator` para gerar um código intermediário correspondente.
+   
 ```mermaid
   flowchart TD
   data["Entrada de dados"] -->|Gera Tokens| Lexer[Lexer]
@@ -108,9 +110,9 @@ Quando o código é executado:
   Lexer -->|Lista de Tokens| Parser[Parser]
   Parser -->|Gera AST| ParserJSON['parser_result.json']
   Parser -->|Gera AST| CodeGenerator[CodeGenerator]
-  CodeGenerator -->|Gera Código Intermediário| GeneratedCode['code_result.json']
+  CodeGenerator -->|Gera Código Intermediário| CodeTXT['code_result.json']
 
-  class Lexer,Tokens,Parser,CodeGenerator,GeneratedCode,AST,data internal
+  class Lexer,LexerJSON,Parser,ParserJSON,CodeGenerator,CodeTXT,data internal
 ```
 
 
