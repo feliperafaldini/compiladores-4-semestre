@@ -104,7 +104,8 @@ Quando o código é executado:
 ```mermaid
   flowchart TD
   data["Entrada de dados"] -->|Gera Tokens| Lexer[Lexer]
-  Lexer -->|Tokens| Parser
+  Lexer -->|Lista de Tokens| JSON['lexer_result.json'] 
+  Lexer -->|Lista de Tokens| Parser[Parser]
   Parser -->|Gera AST| AST[Árvore de Sintaxe Abstrata]
   AST -->|Gera Código Intermediário| CodeGenerator[CodeGenerator]
   CodeGenerator -->|Código Gerado| GeneratedCode[Código Intermediário]
