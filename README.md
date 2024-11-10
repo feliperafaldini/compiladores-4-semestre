@@ -39,8 +39,6 @@ O resultado se dará em um `print` no terminal e também em um arquivo `.json` o
 ```bash
   Resultado salvo \compiladores-4-semestre\Projeto\lexer_result.txt
 ```
-<br>
-<br>
 # Estrutura de Código
 O código é dividido em três principais classes: `Lexer`, `Parser` e `CodeGenerator`.
 <br>
