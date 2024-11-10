@@ -5,7 +5,37 @@
 Este projeto implementa um lexer (analisador léxico) e um parser (analisador sintático) para um código de uma linguagem fictícia, utilizando as bibliotecas PLY (Python Lex-Yacc). O objetivo do código é identificar e analisar expressões matemáticas, estruturas condicionais (`if`, `else`, `elif`), loops (`do-while`), atribuições (`assign`) e funções como `print`. O resultado final é a geração de uma Árvore de Sintaxe Abstrata (AST) e a criação de um código a partir dessa AST.
 <br>
 
-
+# Como Usar
+## Instalação
+Faça o clone do repositório git:
+```bash
+  git clone https://github.com/feliperafaldini/compiladores-4-semestre.git
+```
+<br>
+## Uso
+Instale a biblioteca PLY:
+```python
+  pip install ply
+```
+<br>
+Navegue até o diretório do projeto:
+```bash
+  cd .\compiladores-4-semestre\projeto
+```
+Execute o arquivo `main.py`:
+```python
+  python main.py
+```
+Escolha qual das funções utilizar:
+```bash
+  Escolha uma operação:
+ 1 - Lexer
+ 2 - Parser
+ 3 - CodeGenerator
+ 
+```
+<br>
+<br>
 # Estrutura de Código
 O código é dividido em três principais classes: `Lexer`, `Parser` e `CodeGenerator`.
 <br>
@@ -135,6 +165,7 @@ O `Parser` gera um arquivo `JSON` `parser_result.json`, que contém a AST com a 
 O `CodeGenerator` gera um arquivo `txt` `code_result.txt`, que contém um código intermediário do código fonte fornecido.
 <br>
 <br>
+
 # Requisitos
 1. Python 3.x
 2. Biblioteca 'ply' para construção do lexer e parser:
