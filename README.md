@@ -192,3 +192,5 @@ O `Parser` gera um arquivo `JSON` `parser_result.json`, que contém a AST com a 
 <br>
 O `CodeGenerator` gera um arquivo `txt` `code_result.txt`, que contém um código intermediário do código fonte fornecido.
 
+# Referências
+![Documentação PLY](https://ply.readthedocs.io/en/latest/index.html)
