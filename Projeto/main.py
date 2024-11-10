@@ -24,9 +24,9 @@ class Main:
             while self.operacao == None or self.operacao not in ("1", "2", "3"):
                 self.operacao = input(
                     """Escolha uma operação:
-                    \n 1 - Lexer: Analisa o código e gera uma lista de tokens.
-                    \n 2 - Parser: Analisa os tokens e cria uma Árvore de Sintaxe Abstrata (AST).
-                    \n 3 - CodeGenerator: Gera o código intermediário a partir da AST.
+                    \n1 - Lexer: Analisa o código e gera uma lista de tokens.
+                    \n2 - Parser: Analisa os tokens e cria uma Árvore de Sintaxe Abstrata (AST).
+                    \n3 - CodeGenerator: Gera o código intermediário a partir da AST.
                     \n"""
                 )
 
