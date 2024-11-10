@@ -11,16 +11,14 @@ Faça o clone do repositório git:
 ```bash
   git clone https://github.com/feliperafaldini/compiladores-4-semestre.git
 ```
-<br>
 ## Uso
 Instale a biblioteca PLY:
 ```python
   pip install ply
 ```
-<br>
 Navegue até o diretório do projeto:
 ```bash
-  cd .\compiladores-4-semestre\projeto
+  cd .\compiladores-4-semestre\Projeto
 ```
 Execute o arquivo `main.py`:
 ```python
@@ -32,6 +30,14 @@ Escolha qual das funções utilizar:
  1 - Lexer
  2 - Parser
  3 - CodeGenerator
+```
+Digite o código a ser transformado:
+```bash
+  Insira um código para ser transformado em uma lista de tokens: 
+```
+O resultado se dará em um `print` no terminal e também em um arquivo `JSON` ou `.txt` no mesmo diretório do arquivo `main.py`:
+```bash
+  cd .\compiladores-4-semestre\Projeto\code_result.txt
 ```
 <br>
 <br>
