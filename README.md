@@ -27,9 +27,12 @@ Execute o arquivo `main.py`:
 Escolha qual das funções utilizar:
 ```bash
   Escolha uma operação:
- 1 - Lexer
- 2 - Parser
- 3 - CodeGenerator
+ 1 - Lexer: Analisa o código e gera uma lista de tokens.
+
+ 2 - Parser: Analisa os tokens e cria uma Árvore de Sintaxe Abstrata (AST).
+
+ 3 - CodeGenerator: Gera o código intermediário a partir da AST.
+
 ```
 Digite o código a ser transformado:
 ```bash
@@ -37,7 +40,7 @@ Digite o código a ser transformado:
 ```
 O resultado se dará em um `print` no terminal e também em um arquivo `.json` ou `.txt` no mesmo diretório do arquivo `main.py`:
 ```bash
-  Resultado salvo \compiladores-4-semestre\Projeto\lexer_result.txt
+  Resultado salvo '\compiladores-4-semestre\Projeto\lexer_result.txt'
 ```
 # Estrutura de Código
 O código é dividido em três principais classes: `Lexer`, `Parser` e `CodeGenerator`.
