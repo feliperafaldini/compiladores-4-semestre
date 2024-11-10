@@ -121,7 +121,7 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
 </ul>
 <br>
       
-## Geração de Código
+## CodeGenerator (Geração de Código Intermediário)
 A classe `CodeGenerator` é responsável por converter a árvore sintática abstrata (AST) gerada pelo parser em código intermediário. O código intermediário usa variáveis temporárias e rótulos para representar as operações e estrutuas de controle do código-fonte.
 <br>
 
@@ -185,12 +185,41 @@ Legenda:
 - CodeGenerator: Gera um código intermediário utilizando a AST gerada pelo Parser.
 - 'code_result.txt': Arquivo gerado pelo CodeGenerator contendo o código intermediário gerado.
 
-## Resultados
-O `Lexer` gera um arquivo `JSON` `lexer_result.json`, que contém uma lista de tokens com seu tipo, valor e número de linha.
-<br>
-O `Parser` gera um arquivo `JSON` `parser_result.json`, que contém a AST com a estrutura hierárquica dos elementos do código.
-<br>
-O `CodeGenerator` gera um arquivo `txt` `code_result.txt`, que contém um código intermediário do código fonte fornecido.
+Exemplo de resultado `lexer_result.json` para um código simples `x = 2 + 3;`:
+```json
+[
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 1
+    },
+    {
+        "type": "ASSIGN",
+        "value": "=",
+        "lineno": 1
+    },
+    {
+        "type": "NUMBER",
+        "value": 2,
+        "lineno": 1
+    },
+    {
+        "type": "PLUS",
+        "value": "+",
+        "lineno": 1
+    },
+    {
+        "type": "NUMBER",
+        "value": 3,
+        "lineno": 1
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 1
+    }
+]
+```
 
 # Referências
 [Documentação PLY](https://ply.readthedocs.io/en/latest/index.html)
