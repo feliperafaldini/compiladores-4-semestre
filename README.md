@@ -76,10 +76,10 @@ O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (e
       <code>t_error</code>: Lida com caracteres inválidos.
     </li>
     <li>
-      Método <code>build()</code>: Constrói o lexer com o módulo lex.
+      <code>build()</code>: Constrói o lexer com o módulo lex.
     </li>
     <li>
-      Método <code>test(data)</code>: Testa o lexer com um conjunto de dados <code>data</code> de entrada em forma de <code>string</code>, gerando um arquivo <code>JSON</code> com o resultado da análise léxica.
+      <code>test(data)</code>: Testa o lexer com um conjunto de dados <code>data</code> de entrada em forma de <code>string</code>, gerando um arquivo <code>JSON</code> com o resultado da análise léxica.
     </li>
   </ul>
 </ul>
@@ -96,13 +96,27 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
   <br>
   
   <ul>
-    <li>Expressões Matemáticas: Regras para soma (<code>+</code>), subtração(<code>-</code>, multiplicação (<code>*</code>) e divisão(<code>/</code>).</li>
-    <li>Comparações: Regras para operadores de comparação como igual (<code>==</code>), diferente (<code>!=</code>), menor (<code><</code>), maior (<code>></code>).</li>
-    <li>Atribuições: Regras para atribuições e operações de atribuição como incremento (<code>+=</code>) e decremento (<code>-=</code>).</li>
-    <li>Estruturas de Controle: Regras para estruturas condicionais se (<code>if</code>), se não se (<code>elif</code>), se não (<code>else</code>) e loops faça enquanto (<code>do-while</code>).</li>
-    <li>Função <code>print</code>: Regra para imprimir valores.</li>
-    <li>Método <code>build()</code>: Constrói o parser com o módulo yacc.</li>
-    <li>Método <code>test(data)</code>: Testa o parser com um conjunto de dados <code>data</code> de entrada e gera uma AST no formato <code>JSON</code>.</li>
+    <li>
+      Expressões Matemáticas: Regras para soma (<code>+</code>), subtração(<code>-</code>, multiplicação (<code>*</code>) e divisão(<code>/</code>).
+    </li>
+    <li>
+      Comparações: Regras para operadores de comparação como igual (<code>==</code>), diferente (<code>!=</code>), menor (<code><</code>), maior (<code>></code>).
+    </li>
+    <li>
+      Atribuições: Regras para atribuições e operações de atribuição como incremento (<code>+=</code>) e decremento (<code>-=</code>).
+    </li>
+    <li>
+      Estruturas de Controle: Regras para estruturas condicionais se (<code>if</code>), se não se (<code>elif</code>), se não (<code>else</code>) e loops faça enquanto (<code>do-while</code>).
+    </li>
+    <li>
+      Função <code>print</code>: Regra para imprimir valores.
+    </li>
+    <li>
+      <code>build()</code>: Constrói o parser com o módulo yacc.
+    </li>
+    <li>
+      <code>test(data)</code>: Testa o parser com um conjunto de dados <code>data</code> de entrada e gera uma AST no formato <code>JSON</code>.
+    </li>
   </ul>
 </ul>
 <br>
@@ -162,7 +176,14 @@ Quando o código é executado:
 
   class Lexer,LexerJSON,Parser,ParserJSON,CodeGenerator,CodeTXT,data internal
 ```
-
+Legenda:
+- Entrada de dados:
+- Lexer:
+- LexerJSON:
+- Parser:
+- ParserJSON:
+- CodeGenerator
+- CodeTXT:
 
 ## Resultados
 O `Lexer` gera um arquivo `JSON` `lexer_result.json`, que contém uma lista de tokens com seu tipo, valor e número de linha.
