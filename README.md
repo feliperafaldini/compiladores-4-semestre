@@ -32,7 +32,6 @@ Escolha qual das funções utilizar:
  1 - Lexer
  2 - Parser
  3 - CodeGenerator
- 
 ```
 <br>
 <br>
