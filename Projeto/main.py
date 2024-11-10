@@ -23,7 +23,11 @@ class Main:
         try:
             while self.operacao == None or self.operacao not in ("1", "2", "3"):
                 self.operacao = input(
-                    "Escolha uma operação:\n 1 - Lexer\n 2 - Parser\n 3 - CodeGenerator\n"
+                    """Escolha uma operação:
+                    \n 1 - Lexer: Analisa o código e gera uma lista de tokens.
+                    \n 2 - Parser: Analisa os tokens e cria uma Árvore de Sintaxe Abstrata (AST).
+                    \n 3 - CodeGenerator: Gera o código intermediário a partir da AST.
+                    \n"""
                 )
 
             match self.operacao:
@@ -59,7 +63,7 @@ class Main:
 
             ast = self.parser.test(self.data)
             print(ast)
-            print(f"\nResultado salvo {self.diretorio_atual}\\parser_result.json")
+            print(f"\nResultado salvo em {self.diretorio_atual}\\parser_result.json")
             input("Aperte qualquer tecla para sair...")
 
         except Exception as e:
@@ -77,7 +81,7 @@ class Main:
             self.code_generator.generate_code_output()
             code = self.code_generator.get_code()
             print(code)
-            print(f"\nResultado salvo {self.diretorio_atual}\\code_result.txt")
+            print(f"\nResultado salvo em {self.diretorio_atual}\\code_result.txt")
             input("Aperte qualquer tecla para sair...")
 
         except Exception as e:
