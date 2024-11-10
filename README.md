@@ -86,7 +86,7 @@ O Lexer é responsável por analisar o texto de entrada e separa-lo em tokens (e
 <br>
 
 ## Parser (Analisador Sintático)
-O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e gerar uma Árvore de Sintaxe Abstrata (AST). Ele usa a biblioteca PLY.yacc para definir regras gramaticais e a precedência de operadores.
+O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e gerar uma Árvore Sintática Abstrata (AST). Ele usa a biblioteca PLY.yacc para definir regras gramaticais e a precedência de operadores.
 <br>
 
 <ul>
@@ -122,7 +122,7 @@ O Parser é responsável por analisar a sequência de tokens gerada pelo lexer e
 <br>
       
 ## Geração de Código
-A classe `CodeGenerator` é responsável por converter a árvore de sintaxe abstrata (AST) gerada pelo parser em código intermediário. O código intermediário usa variáveis temporárias e rótulos para representar as operações e estrutuas de controle do código-fonte.
+A classe `CodeGenerator` é responsável por converter a árvore sintática abstrata (AST) gerada pelo parser em código intermediário. O código intermediário usa variáveis temporárias e rótulos para representar as operações e estrutuas de controle do código-fonte.
 <br>
 
 <ul>
@@ -162,7 +162,7 @@ if ( x != y || x == y ) {
 
 Quando o código é executado:
 1. O `Lexer` analisa a entrade e gera uma lista de tokens para cada caractere no código.
-2. O `Parser` usa essa lista de tokens para construir uma Árvore de Sintaxe Abstrata (AST).
+2. O `Parser` usa essa lista de tokens para construir uma Árvore Sintática Abstrata (AST).
 3. A AST é então processada no `CodeGenerator` para gerar um código intermediário correspondente.
    
 ```mermaid
@@ -177,13 +177,13 @@ Quando o código é executado:
   class Lexer,LexerJSON,Parser,ParserJSON,CodeGenerator,CodeTXT,data internal
 ```
 Legenda:
-- Entrada de dados:
-- Lexer:
-- LexerJSON:
-- Parser:
-- ParserJSON:
-- CodeGenerator
-- CodeTXT:
+- Entrada de dados: Código fonte fornecido pelo usuário.
+- Lexer: Converte o código em tokens.
+- 'lexer_result.json': Arquivo gerado pelo Lexer que contém uma lista de todos os tokens gerados.
+- Parser: Constrói uma Árvore Sintática Abstrata (AST) a partir da lista de tokens gerada pelo Lexer.
+- 'parser_result.json': Arquivo gerado pelo Parser que contem a AST gerada pelos tokens.
+- CodeGenerator: Gera um código intermediário utilizando a AST gerada pelo Parser.
+- 'code_result.txt': Arquivo gerado pelo CodeGenerator contendo o código intermediário gerado.
 
 ## Resultados
 O `Lexer` gera um arquivo `JSON` `lexer_result.json`, que contém uma lista de tokens com seu tipo, valor e número de linha.
