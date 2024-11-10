@@ -16,6 +16,7 @@ class CodeGenerator:
         return f"L{self.label_count}"
 
     def generate_code(self, node):
+
         if isinstance(node, list):
             for n in node:
                 self.generate_code(n)
