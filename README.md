@@ -18,7 +18,7 @@ Instale a biblioteca PLY:
 ```
 Navegue até o diretório do projeto:
 ```bash
-  cd .\compiladores-4-semestre\Projeto
+  cd compiladores-4-semestre/Projeto/
 ```
 Execute o arquivo `main.py`:
 ```python
@@ -35,9 +35,9 @@ Digite o código a ser transformado:
 ```bash
   Insira um código para ser transformado em uma lista de tokens: 
 ```
-O resultado se dará em um `print` no terminal e também em um arquivo `JSON` ou `.txt` no mesmo diretório do arquivo `main.py`:
+O resultado se dará em um `print` no terminal e também em um arquivo `.json` ou `.txt` no mesmo diretório do arquivo `main.py`:
 ```bash
-  cd .\compiladores-4-semestre\Projeto\code_result.txt
+  Resultado salvo \compiladores-4-semestre\Projeto\lexer_result.txt
 ```
 <br>
 <br>
