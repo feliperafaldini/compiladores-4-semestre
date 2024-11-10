@@ -223,4 +223,5 @@ Exemplo de resultado `lexer_result.json` para um código simples `x = 2 + 3;`:
 
 # Referências
 [Documentação PLY](https://ply.readthedocs.io/en/latest/index.html)
+<br>
 [Github PLY](https://github.com/dabeaz/ply)
