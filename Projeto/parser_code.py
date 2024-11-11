@@ -1,6 +1,6 @@
 import ply.yacc as yacc
 import json
-from lexer import Lexer
+from lexer_code import Lexer
 from parser_error import ParserError
 
 
@@ -177,7 +177,7 @@ class Parser(object):
             result = self.parser.parse(data, lexer=lexer.lexer)
 
             with open("parser_result.json", "w", encoding="utf-8") as f:
-                json.dump(result, f, ensure_ascii=True)
+                json.dump(result, f, ensure_ascii=True, indent=4)
 
             return result
 
@@ -189,18 +189,7 @@ class Parser(object):
 if __name__ == "__main__":
     parser = Parser()
     parser.build(debug=True)
-    data = """  x = 10; 
-                y= 1;
-                do { 
-                    x -= 1;
-                } while ( x > 1 );
-                if (x != y || x == y) {
-                    print( x ); 
-                } elif (x == y && x != y) {
-                    print( y ); 
-                } else {
-                    print( x , y );
-                }
+    data = """  x = 2 + 2 * ( 1 + 2 );
             """
     result = parser.test(data)
     print(result)

@@ -1,8 +1,8 @@
 import unittest
-from lexer import Lexer
+from lexer_code import Lexer
 from lexer_error import LexerError
 
-from parser import Parser
+from parser_code import Parser
 from parser_error import ParserError
 
 

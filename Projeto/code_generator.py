@@ -1,4 +1,4 @@
-from parser import Parser
+from parser_code import Parser
 
 
 class CodeGenerator:
@@ -29,6 +29,7 @@ class CodeGenerator:
                 target = node[1]
                 expr = self.generate_code(node[2])
                 self.code.append(f"{target} = {expr}")
+                return target
 
             elif node_type == "assign_op":
                 target = node[1]
@@ -39,8 +40,25 @@ class CodeGenerator:
             elif node_type in {"+", "-", "*", "/"}:
                 left = self.generate_code(node[1])
                 right = self.generate_code(node[2])
-                temp = self.new_temp()
-                self.code.append(f"{temp} = {left} {node_type} {right}")
+
+                if not (isinstance(left, str) and left.startswith("t")):
+                    left_temp = self.new_temp()
+                    self.code.append(f"{left_temp} = {left}")
+                else:
+                    left_temp = left
+
+                if not (isinstance(right, str) and right.startswith("t")):
+                    right_temp = self.new_temp()
+                    self.code.append(f"{right_temp} = {right}")
+                else:
+                    right_temp = right
+
+                result_temp = self.new_temp()
+                self.code.append(
+                    f"{result_temp} = {left_temp} {node_type} {right_temp}"
+                )
+
+                return result_temp
 
             elif node_type == "comparison":
                 left = self.generate_code(node[2])
@@ -58,6 +76,9 @@ class CodeGenerator:
 
                 return temp
 
+            elif node_type == "group-expression":
+                return self.generate_code(node[1]) 
+            
             elif node_type == "number-expression":
                 return str(node[1])
 
@@ -167,18 +188,7 @@ if __name__ == "__main__":
     generator = CodeGenerator()
     parser = Parser()
     parser.build(debug=True)
-    data = """  x = 10; 
-                y= 1;
-                do { 
-                    x -= 1;
-                } while ( x > 1 );
-                if (x != y || x == y) {
-                    print( x ); 
-                } elif (x == y && x != y) {
-                    print( y ); 
-                } else {
-                    print( x , y );
-                }
+    data = """  a = ( 3 + 3 + 3 ) * ( 2 * 2 );
             """
     ast = parser.test(data)
     generator.generate_code(ast)
