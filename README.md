@@ -185,6 +185,7 @@ Legenda:
 - CodeGenerator: Gera um código intermediário utilizando a AST gerada pelo Parser.
 - 'code_result.txt': Arquivo gerado pelo CodeGenerator contendo o código intermediário gerado.
 
+#### Resultado
 Exemplo de resultado `lexer_result.json` para um código simples `x = 2 + 3;`:
 ```json
 [
