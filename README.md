@@ -1,5 +1,9 @@
 # Implementação de um Compilador com PLY
 <br>
+# TO-DO
+
+#### Mudar a saida quando há multiplas operações na mesma linha. Ex.: x = 1 + 2 + 3 + 4; A saída deveria ser t1 = 1 + 2; t2 = t1 + 3; t3 = t2 + 4; x = t3
+#### Adicionar comentários descritivos das funções, provavelmente docstrings
 
 ## Descrição
 Este projeto implementa um lexer (analisador léxico) e um parser (analisador sintático) para um código de uma linguagem fictícia, utilizando as bibliotecas PLY (Python Lex-Yacc). O objetivo do código é identificar e analisar expressões matemáticas, estruturas condicionais (`if`, `else`, `elif`), loops (`do-while`), atribuições (`assign`) e funções como `print`. O resultado final é a geração de uma Árvore de Sintaxe Abstrata (AST) e a criação de um código a partir dessa AST.
