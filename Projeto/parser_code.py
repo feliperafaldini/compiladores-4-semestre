@@ -1,6 +1,6 @@
 import ply.yacc as yacc
 import json
-from lexer import Lexer
+from lexer_code import Lexer
 from parser_error import ParserError
 
 

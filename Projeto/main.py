@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from lexer import Lexer
-from parser import Parser
+from lexer_code import Lexer
+from parser_code import Parser
 from code_generator import CodeGenerator
 
 
@@ -30,13 +30,12 @@ class Main:
                     \n"""
                 )
 
-            match self.operacao:
-                case "1":
-                    self.menu_lexer()
-                case "2":
-                    self.menu_parser()
-                case "3":
-                    self.menu_code_generator()
+            if self.operacao == "1":
+                self.menu_lexer()
+            elif self.operacao == "2":
+                self.menu_parser()
+            elif self.operacao == "3":    
+                self.menu_code_generator()
 
         except Exception as e:
             print(f"Erro: {e}")

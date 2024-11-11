@@ -1,5 +1,4 @@
-from parser import Parser
-
+from parser_code import Parser
 
 class CodeGenerator:
     def __init__(self):

@@ -1,0 +1,332 @@
+[
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 1
+    },
+    {
+        "type": "ASSIGN",
+        "value": "=",
+        "lineno": 1
+    },
+    {
+        "type": "NUMBER",
+        "value": 10,
+        "lineno": 1
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 1
+    },
+    {
+        "type": "ID",
+        "value": "y",
+        "lineno": 2
+    },
+    {
+        "type": "ASSIGN",
+        "value": "=",
+        "lineno": 2
+    },
+    {
+        "type": "NUMBER",
+        "value": 1,
+        "lineno": 2
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 2
+    },
+    {
+        "type": "DO",
+        "value": "do",
+        "lineno": 3
+    },
+    {
+        "type": "LBRACE",
+        "value": "{",
+        "lineno": 3
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 4
+    },
+    {
+        "type": "MINUSASSIGN",
+        "value": "-=",
+        "lineno": 4
+    },
+    {
+        "type": "NUMBER",
+        "value": 1,
+        "lineno": 4
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 4
+    },
+    {
+        "type": "RBRACE",
+        "value": "}",
+        "lineno": 5
+    },
+    {
+        "type": "WHILE",
+        "value": "while",
+        "lineno": 5
+    },
+    {
+        "type": "LPAREN",
+        "value": "(",
+        "lineno": 5
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 5
+    },
+    {
+        "type": "MORE",
+        "value": ">",
+        "lineno": 5
+    },
+    {
+        "type": "NUMBER",
+        "value": 1,
+        "lineno": 5
+    },
+    {
+        "type": "RPAREN",
+        "value": ")",
+        "lineno": 5
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 5
+    },
+    {
+        "type": "IF",
+        "value": "if",
+        "lineno": 6
+    },
+    {
+        "type": "LPAREN",
+        "value": "(",
+        "lineno": 6
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 6
+    },
+    {
+        "type": "NOTEQUAL",
+        "value": "!=",
+        "lineno": 6
+    },
+    {
+        "type": "ID",
+        "value": "y",
+        "lineno": 6
+    },
+    {
+        "type": "OR",
+        "value": "||",
+        "lineno": 6
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 6
+    },
+    {
+        "type": "EQUAL",
+        "value": "==",
+        "lineno": 6
+    },
+    {
+        "type": "ID",
+        "value": "y",
+        "lineno": 6
+    },
+    {
+        "type": "RPAREN",
+        "value": ")",
+        "lineno": 6
+    },
+    {
+        "type": "LBRACE",
+        "value": "{",
+        "lineno": 6
+    },
+    {
+        "type": "PRINT",
+        "value": "print",
+        "lineno": 7
+    },
+    {
+        "type": "LPAREN",
+        "value": "(",
+        "lineno": 7
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 7
+    },
+    {
+        "type": "RPAREN",
+        "value": ")",
+        "lineno": 7
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 7
+    },
+    {
+        "type": "RBRACE",
+        "value": "}",
+        "lineno": 8
+    },
+    {
+        "type": "ELIF",
+        "value": "elif",
+        "lineno": 8
+    },
+    {
+        "type": "LPAREN",
+        "value": "(",
+        "lineno": 8
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 8
+    },
+    {
+        "type": "EQUAL",
+        "value": "==",
+        "lineno": 8
+    },
+    {
+        "type": "ID",
+        "value": "y",
+        "lineno": 8
+    },
+    {
+        "type": "AND",
+        "value": "&&",
+        "lineno": 8
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 8
+    },
+    {
+        "type": "NOTEQUAL",
+        "value": "!=",
+        "lineno": 8
+    },
+    {
+        "type": "ID",
+        "value": "y",
+        "lineno": 8
+    },
+    {
+        "type": "RPAREN",
+        "value": ")",
+        "lineno": 8
+    },
+    {
+        "type": "LBRACE",
+        "value": "{",
+        "lineno": 8
+    },
+    {
+        "type": "PRINT",
+        "value": "print",
+        "lineno": 9
+    },
+    {
+        "type": "LPAREN",
+        "value": "(",
+        "lineno": 9
+    },
+    {
+        "type": "ID",
+        "value": "y",
+        "lineno": 9
+    },
+    {
+        "type": "RPAREN",
+        "value": ")",
+        "lineno": 9
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 9
+    },
+    {
+        "type": "RBRACE",
+        "value": "}",
+        "lineno": 10
+    },
+    {
+        "type": "ELSE",
+        "value": "else",
+        "lineno": 10
+    },
+    {
+        "type": "LBRACE",
+        "value": "{",
+        "lineno": 10
+    },
+    {
+        "type": "PRINT",
+        "value": "print",
+        "lineno": 11
+    },
+    {
+        "type": "LPAREN",
+        "value": "(",
+        "lineno": 11
+    },
+    {
+        "type": "ID",
+        "value": "x",
+        "lineno": 11
+    },
+    {
+        "type": "COMMA",
+        "value": ",",
+        "lineno": 11
+    },
+    {
+        "type": "ID",
+        "value": "y",
+        "lineno": 11
+    },
+    {
+        "type": "RPAREN",
+        "value": ")",
+        "lineno": 11
+    },
+    {
+        "type": "SEMICOLON",
+        "value": ";",
+        "lineno": 11
+    },
+    {
+        "type": "RBRACE",
+        "value": "}",
+        "lineno": 12
+    }
+]
