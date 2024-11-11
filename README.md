@@ -1,6 +1,6 @@
 # Implementação de um Compilador com PLY
 
-# TO-DO
+## TO-DO
 
 #### Mudar a saida quando há multiplas operações na mesma linha. Ex.: x = 1 + 2 + 3 + 4; A saída deveria ser t1 = 1 + 2; t2 = t1 + 3; t3 = t2 + 4; x = t3
 #### Adicionar comentários descritivos das funções, provavelmente docstrings
