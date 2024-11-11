@@ -167,7 +167,7 @@ Quando o código é executado:
    
 ```mermaid
   flowchart TD
-  data["Entrada de dados"] -->|Gera Tokens| Lexer[Lexer]
+  data["Entrada de dados"] -->|Código Fonte| Lexer[Lexer]
   Lexer -->|Lista de Tokens| LexerJSON['lexer_result.json'] 
   Lexer -->|Lista de Tokens| Parser[Parser]
   Parser -->|Gera AST| ParserJSON['parser_result.json']
